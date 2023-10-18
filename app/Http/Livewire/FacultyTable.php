@@ -38,7 +38,7 @@ class FacultyTable extends DataTableComponent
     public function builder(): Builder
     {
         $faculties = Faculty::query();
-        $faculties = $faculties->with(["major"]);
+        // $faculties = $faculties->with(["majors"]);
 
         $role = auth()->user()->role;
         if ($role === UserRole::ACADEMIC_FACULTY) {

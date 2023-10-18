@@ -9,23 +9,23 @@
     ];
 
     if (in_array(auth()->user()->role, ['admin', UserRole::ACADEMIC_UNIVERSITY])) {
-        // $navbars[] = [
-        //     'label' => 'Struktur Universitas',
-        //     'active' => request()->routeIs(['faculty.*', 'major.*']),
-        //     'icon' => 'heroicon-m-squares-2x2',
-        //     'child' => [
-        //         [
-        //             'label' => 'Fakultas',
-        //             'url' => route('faculty.index'),
-        //             'active' => request()->routeIs('faculty.index'),
-        //         ],
-        //         [
-        //             'label' => 'Jurusan',
-        //             'url' => route('major.index'),
-        //             'active' => request()->routeIs('major.index'),
-        //         ],
-        //     ],
-        // ];
+        $navbars[] = [
+            'label' => 'Struktur Universitas',
+            'active' => request()->routeIs(['faculty.*', 'major.*']),
+            'icon' => 'heroicon-m-squares-2x2',
+            'child' => [
+                [
+                    'label' => 'Fakultas',
+                    'url' => route('faculty.index'),
+                    'active' => request()->routeIs('faculty.index'),
+                ],
+                [
+                    'label' => 'Jurusan',
+                    'url' => route('major.index'),
+                    'active' => request()->routeIs('major.index'),
+                ],
+            ],
+        ];
 
         $navbars[] = [
             'label' => 'Dosen',
