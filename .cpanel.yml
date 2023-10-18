@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/u1448812/public_html/sia.resamja.com
+    - /bin/cp -R * $DEPLOYPATH

@@ -1,0 +1,25 @@
+// @tailwind base;
+// @tailwind components;
+// @tailwind utilities;
+
+@import 'tailwindcss/base';
+@layer base {
+    @import "costum-base";
+}
+
+@import 'tailwindcss/components';
+
+@layer components {
+    @import "components/_sidebar";
+    @import "components/_table";
+    @import "components/_card";
+    // @import "components/_multiselect";
+}
+@import "components/_choices";
+
+@import 'tailwindcss/utilities';
+
+
+[x-cloak] {
+    display: none;
+}

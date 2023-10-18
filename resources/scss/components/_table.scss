@@ -1,0 +1,60 @@
+.table-wrapper {
+    select {
+        background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.5 23.5" fill="none" stroke="black" stroke-opacity="0.75" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e');
+    }
+}
+
+.dark {
+    .table-wrapper {
+        select {
+            background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.5 23.5" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"%3e%3cpolyline points="6 9 12 15 18 9"%3e%3c/polyline%3e%3c/svg%3e');
+        }
+    }
+}
+
+.table-wrapper {
+    // @apply dark:text-white #{!important};
+    input {
+        @apply px-4 py-2;
+    }
+    [wire\:model="table.search"] {
+        @apply min-w-full border-0 border-transparent pl-4 outline-0 ring-0 focus:border-0 dark:border-transparent md:min-w-[35rem];
+    }
+    input[aria-labelledby="column-select-menu"] {
+        @apply h-[26rem] overflow-y-auto;
+    }
+
+    #perPage,
+    select {
+        @apply rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600;
+        appearance: none;
+        background-repeat: no-repeat;
+        background-position: right 0.5rem center;
+        background-size: 1rem;
+
+    }
+
+    thead .header-number {
+        @apply p-0 text-center;
+        button {
+            @apply px-2 py-3;
+        }
+    }
+
+    tbody .header-number {
+        @apply w-0 p-0 text-center;
+    }
+
+    thead tr {
+        th {
+            @apply p-0;
+            button {
+                @apply flex w-full justify-between px-6 py-3;
+            }
+        }
+    }
+
+    .shadow.overflow-y-scroll.border-b.border-gray-200 {
+        overflow-y: auto !important;
+    }
+}

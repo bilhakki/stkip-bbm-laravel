@@ -1,0 +1,43 @@
+Electronic Course Registration merupakan sistem yang digunakan oleh mahasiswa untuk mendaftarkan dan mengatur jadwal mata kuliah secara elektronik. Berikut adalah fitur-fitur yang umumnya harus ada dalam Electronic Course Registration:
+
+1. Autentikasi Pengguna: Fitur untuk memungkinkan pengguna, terutama mahasiswa, untuk masuk ke dalam sistem dengan akun pengguna mereka.
+
+2. Pencarian dan Penampilan Informasi Mata Kuliah: Fitur yang memungkinkan mahasiswa mencari dan melihat informasi tentang mata kuliah yang tersedia, termasuk deskripsi, kredit, prasyarat, dan jadwalnya.
+
+3. Daftar Jadwal Kuliah: Mahasiswa dapat mendaftarkan mata kuliah yang ingin mereka ambil dalam semester tertentu dan membangun jadwal kuliah mereka sendiri.
+
+4. Konfirmasi Pendaftaran: Setelah mendaftarkan mata kuliah, mahasiswa harus melakukan konfirmasi untuk mengaktifkan pendaftaran mereka.
+
+5. Pengaturan Profil Pengguna: Mahasiswa dapat mengatur dan mengubah informasi profil mereka seperti alamat email, nomor telepon, dan lain-lain.
+
+6. Notifikasi: Sistem dapat mengirimkan notifikasi atau peringatan kepada mahasiswa tentang pendaftaran, perubahan jadwal, dan informasi penting lainnya.
+
+7. Batasan Kredit/SKS: Sistem harus memastikan bahwa jumlah kredit atau SKS yang diambil oleh mahasiswa tidak melebihi batas yang ditentukan oleh universitas atau fakultas.
+
+8. Penjadwalan Otomatis: Fitur yang dapat membantu mahasiswa menentukan jadwal mata kuliah yang optimal berdasarkan ketersediaan dan prasyarat mata kuliah.
+
+9. Antrean Pendaftaran: Jika ada batasan tempat dalam sebuah mata kuliah, sistem harus memiliki fitur antrian pendaftaran yang adil untuk mahasiswa yang belum berhasil mendaftar.
+
+10. Penilaian Online: Fitur untuk mengumpulkan penilaian online dari mahasiswa terhadap pengajaran dan kualitas kuliah yang diberikan oleh dosen.
+
+11. Informasi Jadwal Dosen: Mahasiswa harus dapat melihat jadwal mengajar dosen yang terkait dengan mata kuliah yang diajarkan.
+
+12. Lihat Hasil dan Transkrip: Fitur untuk melihat hasil atau nilai mata kuliah yang diambil serta melihat transkrip akademik keseluruhan mahasiswa.
+
+13. Pengajuan Keterangan Tidak Hadir: Mahasiswa harus bisa mengajukan keterangan tidak hadir atau izin cuti kuliah jika diperlukan.
+
+14. Pengingat Akademik: Sistem dapat mengirimkan pengingat tentang tanggal-tanggal penting, seperti batas pendaftaran, tenggat waktu pembayaran, dan lain-lain.
+
+15. Laporan dan Analisis: Fitur untuk menghasilkan laporan dan analisis tentang performa akademik mahasiswa dan mata kuliah yang paling diminati.
+
+16. Manajemen Kelas: Fitur yang memungkinkan dosen untuk mengatur dan mengelola kelompok mahasiswa dalam suatu mata kuliah, khususnya untuk mata kuliah dengan praktikum atau tugas kelompok.
+
+17. Pengarsipan Data: Fitur untuk menyimpan dan mengarsipkan data akademik mahasiswa, jadwal kuliah, dan data-data penting lainnya.
+
+18. Manajemen Dosen: Fitur untuk mengelola data dan informasi tentang dosen, termasuk penugasan mata kuliah dan jadwal mengajar.
+
+19. Manajemen Jurusan dan Fakultas: Fitur untuk mengelola data dan informasi tentang jurusan dan fakultas, termasuk kurikulum dan prasyarat mata kuliah.
+
+20. Integrasi dengan Sistem Lain: Fitur untuk mengintegrasikan Electronic Course Registration dengan sistem informasi lain seperti sistem keuangan dan sistem manajemen akademik universitas.
+
+Pastikan bahwa fitur-fitur di atas disesuaikan dengan kebutuhan dan kebijakan dari universitas atau institusi pendidikan terkait.

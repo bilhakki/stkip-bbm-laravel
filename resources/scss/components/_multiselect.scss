@@ -1,0 +1,34 @@
+select[multiple] {
+  // Hapus tampilan default dari select
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  padding: 0.5rem 2rem 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  width: 100%;
+  max-width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: #4a5568;
+  cursor: pointer;
+
+  // Tambahkan styles dari Tailwind CSS
+  @apply bg-white text-gray-700 hover:border-gray-300 focus:outline-none focus:ring focus:border-blue-300;
+}
+
+// Styling untuk opsi select yang dipilih (selected)
+select[multiple] option:checked {
+  background-color: #4299e1;
+  color: white;
+
+  // Tambahkan styles dari Tailwind CSS
+  @apply bg-blue-500;
+}
+
+
+
+
+

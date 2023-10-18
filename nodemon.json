@@ -1,0 +1,8 @@
+{
+  "verbose": true,
+
+  "watch": [
+    ".node/get-migrations.js",
+    "database/migrations/**.*"
+  ]
+}

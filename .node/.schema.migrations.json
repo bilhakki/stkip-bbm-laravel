@@ -1,0 +1,918 @@
+[
+  {
+    "file": "2014_10_12_000000_create_users_table.php",
+    "schemaData": [
+      {
+        "tableName": "users",
+        "comment": "Tabel ini digunakan untuk menyimpan data pengguna atau user dalam sistem.",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "string",
+            "name": "name",
+            "attributes": "",
+            "comment": "menyimpan nama pengguna"
+          },
+          {
+            "type": "string",
+            "name": "email",
+            "attributes": "",
+            "comment": "menyimpan alamat email pengguna yang unik"
+          },
+          {
+            "type": "string",
+            "name": "username",
+            "attributes": "",
+            "comment": "menyimpan nomor pengenal. Nomor Induk Mahasiswa untuk pelajar dan Nomor Identitas Pegawai untuk dosen dan pegawai akademik"
+          },
+          {
+            "type": "timestamp",
+            "name": "email_verified_at",
+            "attributes": "",
+            "comment": "menunjukkan peran (admin, student, lecturer, academic_university, academic_faculty atau academic_major) dari pengguna"
+          },
+          {
+            "type": "string",
+            "name": "password",
+            "attributes": "",
+            "comment": "menunjukkan peran (admin, student, lecturer, academic_university, academic_faculty atau academic_major) dari pengguna"
+          },
+          {
+            "type": "enum",
+            "name": "role",
+            "attributes": "UserRole::values()",
+            "comment": ""
+          },
+          {
+            "type": "foreignId",
+            "name": "current_team_id",
+            "attributes": "",
+            "comment": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2014_10_12_100000_create_password_reset_tokens_table.php",
+    "schemaData": [
+      {
+        "tableName": "password_reset_tokens",
+        "comment": "",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "string",
+            "name": "email",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "string",
+            "name": "token",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "timestamp",
+            "name": "created_at",
+            "attributes": "",
+            "comment": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2014_10_12_200000_add_two_factor_columns_to_users_table.php",
+    "schemaData": []
+  },
+  {
+    "file": "2019_08_19_000000_create_failed_jobs_table.php",
+    "schemaData": [
+      {
+        "tableName": "failed_jobs",
+        "comment": "",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "string",
+            "name": "uuid",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "text",
+            "name": "connection",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "text",
+            "name": "queue",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "timestamp",
+            "name": "failed_at",
+            "attributes": "",
+            "comment": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2019_12_14_000001_create_personal_access_tokens_table.php",
+    "schemaData": [
+      {
+        "tableName": "personal_access_tokens",
+        "comment": "",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "string",
+            "name": "name",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "text",
+            "name": "abilities",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "timestamp",
+            "name": "last_used_at",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "timestamp",
+            "name": "expires_at",
+            "attributes": "",
+            "comment": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_22_120324_create_faculties_table.php",
+    "schemaData": [
+      {
+        "tableName": "faculties",
+        "comment": "Tabel ini berisi informasi tentang fakultas-fakultas di universitas.",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "string",
+            "name": "name",
+            "attributes": "",
+            "comment": "nama fakultas"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_22_120324_create_rooms_table.php",
+    "schemaData": [
+      {
+        "tableName": "rooms",
+        "comment": "Tabel ini berisi informasi tentang ruangan-ruangan yang digunakan untuk perkuliahan.",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "string",
+            "name": "name",
+            "attributes": "",
+            "comment": "nama ruang bisa, diawali dengan nama gedung - lantai - nomor ruangan"
+          },
+          {
+            "type": "text",
+            "name": "description",
+            "attributes": "",
+            "comment": "berisi info lebih rinci mengenai lokasi ruangan dan rincian lainya"
+          },
+          {
+            "type": "integer",
+            "name": "capacity",
+            "attributes": "",
+            "comment": "kapasitas maksimal mahasiswa dalam sebuah ruangan"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_22_120325_create_majors_table.php",
+    "schemaData": [
+      {
+        "tableName": "majors",
+        "comment": "Tabel ini berisi informasi tentang jurusan-jurusan di universitas.",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "string",
+            "name": "name",
+            "attributes": "",
+            "comment": "nama jurusan"
+          },
+          {
+            "type": "foreignId",
+            "name": "faculty_id",
+            "attributes": "",
+            "comment": "menghubungkan jurusan dengan fakultas dimana 1 fakultas bisa terdapat 1 atau banyak jurusan"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_22_120325_create_seasons_table.php",
+    "schemaData": [
+      {
+        "tableName": "seasons",
+        "comment": "",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "string",
+            "name": "name",
+            "attributes": "",
+            "comment": "misal: `2023/2024`, `2024/2025`, dst."
+          },
+          {
+            "type": "date",
+            "name": "start_date",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "date",
+            "name": "end_date",
+            "attributes": "",
+            "comment": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_22_120326_create_academics_table.php",
+    "schemaData": [
+      {
+        "tableName": "academics",
+        "comment": "Tabel ini menyimpan data pegawai akademik. Pegawai akademik dapat terdiri dari academic_university, academic_faculty atau academic_major.",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "unsignedBigInteger",
+            "name": "academicable_id",
+            "attributes": "",
+            "comment": "merupakan foreign key yang mengacu pada tabel `users`, untuk menghubungkan data pegawai akademik dengan data user"
+          },
+          {
+            "type": "string",
+            "name": "academicable_type",
+            "attributes": "",
+            "comment": "merupakan foreign key yang mengacu pada tabel `users`, untuk menghubungkan data pegawai akademik dengan data user"
+          },
+          {
+            "type": "foreignId",
+            "name": "user_id",
+            "attributes": "",
+            "comment": "merupakan foreign key yang mengacu pada tabel `users`, untuk menghubungkan data pegawai akademik dengan data user"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_22_120326_create_students_table.php",
+    "schemaData": [
+      {
+        "tableName": "students",
+        "comment": "Tabel ini menyimpan data mahasiswa",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "string",
+            "name": "student_id",
+            "attributes": "",
+            "comment": "menyimpan nomor identifikasi mahasiswa seperti nomor induk mahasiswa"
+          },
+          {
+            "type": "integer",
+            "name": "current_credits",
+            "attributes": "",
+            "comment": "Untuk menghitung jumlah kredit atau sks yang telah diambil oleh setiap mahasiswa pada semester saat ini. Informasi ini diperlukan untuk memastikan bahwa setiap mahasiswa tidak mengambil lebih dari batas maksimum kredit yang diizinkan."
+          },
+          {
+            "type": "integer",
+            "name": "admission_year",
+            "attributes": "",
+            "comment": "menyimpan tahun masuk mahasiswa"
+          },
+          {
+            "type": "date",
+            "name": "date_of_birth",
+            "attributes": "",
+            "comment": "tanggal lahir mahasiswa"
+          },
+          {
+            "type": "enum",
+            "name": "gender",
+            "attributes": "Gender::values()",
+            "comment": ""
+          },
+          {
+            "type": "enum",
+            "name": "status",
+            "attributes": "StudentStatus::values()",
+            "comment": ""
+          },
+          {
+            "type": "text",
+            "name": "address",
+            "attributes": "",
+            "comment": "alamat mahasiswa"
+          },
+          {
+            "type": "string",
+            "name": "phone_number",
+            "attributes": "",
+            "comment": "nomor telepon mahasiswa"
+          },
+          {
+            "type": "string",
+            "name": "guardian_name",
+            "attributes": "",
+            "comment": "nama wali mahasiswa"
+          },
+          {
+            "type": "string",
+            "name": "guardian_phone_number",
+            "attributes": "",
+            "comment": "nomor telepon wali mahasiswa"
+          },
+          {
+            "type": "string",
+            "name": "blood_type",
+            "attributes": "",
+            "comment": "golongan darah mahasiswa"
+          },
+          {
+            "type": "unsignedBigInteger",
+            "name": "tuition_fee",
+            "attributes": "",
+            "comment": "menyimpan besaran SPP untuk mahasiswa"
+          },
+          {
+            "type": "foreignId",
+            "name": "user_id",
+            "attributes": "",
+            "comment": "merupakan foreign key yang mengacu pada tabel `users`, untuk menghubungkan data mahasiswa dengan data user"
+          },
+          {
+            "type": "foreignId",
+            "name": "faculty_id",
+            "attributes": "",
+            "comment": "menyimpan foreign key untuk menghubungkan data mahasiswa dengan fakultas"
+          },
+          {
+            "type": "foreignId",
+            "name": "major_id",
+            "attributes": "",
+            "comment": "menyimpan foreign key untuk menghubungkan data mahasiswa dengan jurusan"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_22_120342_create_courses_table.php",
+    "schemaData": [
+      {
+        "tableName": "courses",
+        "comment": "Tabel ini berisi informasi tentang mata kuliah yang tersedia di sistem.",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "string",
+            "name": "code",
+            "attributes": "",
+            "comment": "menyimpan kode unik untuk mata kuliah"
+          },
+          {
+            "type": "string",
+            "name": "name",
+            "attributes": "",
+            "comment": "menyimpan nama lengkap mata kuliah"
+          },
+          {
+            "type": "integer",
+            "name": "credits",
+            "attributes": "",
+            "comment": "menyimpan nilai default jumlah kredit atau sks (sistem kredit semester) dari mata kuliah"
+          },
+          {
+            "type": "foreignId",
+            "name": "major_id",
+            "attributes": "",
+            "comment": "menyimpan foreign key untuk menghubungkan data mahasiswa dengan jurusan"
+          },
+          {
+            "type": "foreignId",
+            "name": "faculty_id",
+            "attributes": "",
+            "comment": "menyimpan foreign key untuk menghubungkan data mahasiswa dengan fakultas"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_22_120415_create_lecturers_table.php",
+    "schemaData": [
+      {
+        "tableName": "lecturers",
+        "comment": "Tabel ini berisi informasi tentang dosen-dosen di universitas.",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "string",
+            "name": "position",
+            "attributes": "",
+            "comment": "menjelaskan dirinya dikampus, seperti asisten dosen, dosen atau dosen senior"
+          },
+          {
+            "type": "string",
+            "name": "specialization",
+            "attributes": "",
+            "comment": "spesialisasi dari dosen ini"
+          },
+          {
+            "type": "string",
+            "name": "phone_number",
+            "attributes": "",
+            "comment": "nomor telepon dosen"
+          },
+          {
+            "type": "enum",
+            "name": "status",
+            "attributes": "LecturerStatus::values()",
+            "comment": ""
+          },
+          {
+            "type": "foreignId",
+            "name": "user_id",
+            "attributes": "",
+            "comment": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_22_141652_create_course_prerequisites_table.php",
+    "schemaData": [
+      {
+        "tableName": "course_prerequisites",
+        "comment": "Tabel ini mencatat persyaratan prasyarat untuk setiap mata kuliah.",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "foreignId",
+            "name": "course_id",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "foreignId",
+            "name": "prerequisite_course_id",
+            "attributes": "",
+            "comment": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_22_174804_create_tuition_payments_table.php",
+    "schemaData": [
+      {
+        "tableName": "tuition_payments",
+        "comment": "table ini akan mencatat mahasiswa yang telah membayar spp",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "dateTime",
+            "name": "payment_at",
+            "attributes": "",
+            "comment": "menyimpan tanggal pembayaran SPP."
+          },
+          {
+            "type": "unsignedBigInteger",
+            "name": "amount",
+            "attributes": "",
+            "comment": "menyimpan jumlah pembayaran SPP."
+          },
+          {
+            "type": "string",
+            "name": "receipt_number",
+            "attributes": "",
+            "comment": "menyimpan nomor kwitansi pembayaran."
+          },
+          {
+            "type": "enum",
+            "name": "status",
+            "attributes": "TuitionPaymentStatus::values()",
+            "comment": ""
+          },
+          {
+            "type": "foreignId",
+            "name": "student_id",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "foreignId",
+            "name": "season_id",
+            "attributes": "",
+            "comment": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_22_185323_create_student_season_logs_table.php",
+    "schemaData": [
+      {
+        "tableName": "student_season_logs",
+        "comment": "mencatat status mahasiswa per semester apakah aktif, cuti, lulus atau drop out",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "enum",
+            "name": "status",
+            "attributes": "StudentStatus::values()",
+            "comment": ""
+          },
+          {
+            "type": "text",
+            "name": "description",
+            "attributes": "",
+            "comment": "deskripsi atau catatan tambahan mengenai log kegiatan mahasiswa pada season tersebut"
+          },
+          {
+            "type": "foreignId",
+            "name": "student_id",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "foreignId",
+            "name": "season_id",
+            "attributes": "",
+            "comment": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_22_190912_create_classrooms_table.php",
+    "schemaData": [
+      {
+        "tableName": "classrooms",
+        "comment": "menyimpan data tentang setiap kelas matakuliah yang ada di universitas. Setiap kelas akan memiliki informasi seperti nama kelas, tahun ajaran, semester, jumlah mahasiswa, dan lain sebagainya. tabel ini adalah panduan mahasiswa untuk memilik mata kuliah atau kelas yang akan diambil.",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "string",
+            "name": "name",
+            "attributes": "",
+            "comment": "Kapasitas maksimum mahasiswa dalam kelas."
+          },
+          {
+            "type": "integer",
+            "name": "capacity",
+            "attributes": "",
+            "comment": "Kapasitas maksimum mahasiswa dalam kelas."
+          },
+          {
+            "type": "integer",
+            "name": "credits",
+            "attributes": "",
+            "comment": "menyimpan nilai jumlah kredit atau sks (sistem kredit semester) dari mata kuliah"
+          },
+          {
+            "type": "foreignId",
+            "name": "season_id",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "foreignId",
+            "name": "course_id",
+            "attributes": "",
+            "comment": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_22_191309_create_classroom_enrollments_table.php",
+    "schemaData": [
+      {
+        "tableName": "classroom_enrollments",
+        "comment": "Tabel ini akan menghubungkan data mahasiswa dengan kelas yang mereka ambil pada setiap semester.",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "text",
+            "name": "remarks",
+            "attributes": "",
+            "comment": "Kolom ini digunakan untuk menyimpan catatan atau keterangan tambahan terkait status pendaftaran mahasiswa ke dalam kelas. Misalnya, alasan penolakan pendaftaran jika statusnya `rejected`, atau pesan persetujuan jika statusnya `approved`."
+          },
+          {
+            "type": "enum",
+            "name": "status",
+            "attributes": "ClassroomEnrollmentStatus::values()",
+            "comment": ""
+          },
+          {
+            "type": "foreignId",
+            "name": "season_id",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "foreignId",
+            "name": "classroom_id",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "foreignId",
+            "name": "student_id",
+            "attributes": "",
+            "comment": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_22_193048_create_classroom_sessions_table.php",
+    "schemaData": [
+      {
+        "tableName": "classroom_sessions",
+        "comment": "mencatat detail mulai dari perencanaan kelas dari akademik di setiap sesi atau pertemuan dalam kelas. berisi tanggal, jam, ruangan dan deskripsi sesi kelas",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "dateTime",
+            "name": "start_datetime",
+            "attributes": "",
+            "comment": "menyimpan tanggal dan jam dimulainya sesi kelas"
+          },
+          {
+            "type": "dateTime",
+            "name": "end_datetime",
+            "attributes": "",
+            "comment": "menyimpan tanggal dan jam berakhirnya sesi kelas"
+          },
+          {
+            "type": "string",
+            "name": "attendance_code",
+            "attributes": "",
+            "comment": "menyimpan kode unik atau token yang digunakan mahasiswa untuk mencatat kehadiran secara otomatis atau online. Kode ini dapat dihasilkan secara acak untuk setiap sesi kelas."
+          },
+          {
+            "type": "text",
+            "name": "topic",
+            "attributes": "",
+            "comment": "menyimpan topik atau materi yang akan dibahas dalam sesi tersebut."
+          },
+          {
+            "type": "foreignId",
+            "name": "classroom_id",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "foreignId",
+            "name": "season_id",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "foreignId",
+            "name": "lecturer_id",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "foreignId",
+            "name": "room_id",
+            "attributes": "",
+            "comment": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_22_194324_create_student_grades_table.php",
+    "schemaData": [
+      {
+        "tableName": "student_grades",
+        "comment": "menyimpan nilai akademik mahasiswa pada setiap mata kuliah",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "float",
+            "name": "grade",
+            "attributes": "",
+            "comment": "menyimpan informasi tentang nilai yang diberikan pada mata kuliah tersebut."
+          },
+          {
+            "type": "foreignId",
+            "name": "student_id",
+            "attributes": "",
+            "comment": "foreign key yang mengacu pada tabel `students`, untuk menghubungkan nilai dengan mahasiswa tertentu"
+          },
+          {
+            "type": "foreignId",
+            "name": "course_id",
+            "attributes": "",
+            "comment": "untuk menghubungkan nilai dengan mata kuliah tertentu"
+          },
+          {
+            "type": "foreignId",
+            "name": "classroom_id",
+            "attributes": "",
+            "comment": "untuk mengetahui siapa yang menginput nilai, bisa jadi admin, akademik atau dosen"
+          },
+          {
+            "type": "foreignId",
+            "name": "season_id",
+            "attributes": "",
+            "comment": "untuk menghubungkan nilai dengan semester tertentu"
+          },
+          {
+            "type": "foreignId",
+            "name": "user_id",
+            "attributes": "",
+            "comment": "untuk mengetahui siapa yang menginput nilai, bisa jadi admin, akademik atau dosen"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_22_201653_create_student_attendances_table.php",
+    "schemaData": [
+      {
+        "tableName": "student_attendances",
+        "comment": "mencatat absensi mahasiswa pada setiap sesi kelas",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "enum",
+            "name": "status",
+            "attributes": "StudentAttendanceStatus::values()",
+            "comment": ""
+          },
+          {
+            "type": "foreignId",
+            "name": "student_id",
+            "attributes": "",
+            "comment": "untuk menghubungkan mahasiswa yang melakukan absen"
+          },
+          {
+            "type": "foreignId",
+            "name": "classroom_session_id",
+            "attributes": "",
+            "comment": "untuk menghubungkan sesi kelas tertentu dengan absen"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_22_210256_create_classroom_lecturer_table.php",
+    "schemaData": [
+      {
+        "tableName": "classroom_lecturer",
+        "comment": "table many to many yang menghubungkan table classroom dengan lecturer",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "foreignId",
+            "name": "classroom_id",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "foreignId",
+            "name": "lecturer_id",
+            "attributes": "",
+            "comment": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_22_210642_create_classroom_student_table.php",
+    "schemaData": [
+      {
+        "tableName": "classroom_student",
+        "comment": "table many to many yang menghubungkan table classroom dengan student",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "foreignId",
+            "name": "classroom_id",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "foreignId",
+            "name": "student_id",
+            "attributes": "",
+            "comment": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_23_091711_create_academic_advisors_table.php",
+    "schemaData": [
+      {
+        "tableName": "academic_advisors",
+        "comment": "Mencatat hubungan antara dosen pembimbing akademik (academic advisor) dengan mahasiswa. Dosen pembimbing akademik adalah seorang dosen yang bertanggung jawab untuk memberikan bimbingan dan nasihat akademik kepada mahasiswa yang ditugaskan kepadanya. Setiap mahasiswa biasanya memiliki satu dosen pembimbing akademik yang membantu mereka dalam merencanakan kurikulum studi, memberikan saran mengenai mata kuliah yang harus diambil, membantu mengatasi masalah akademik, dan memberikan panduan umum untuk mencapai tujuan akademik.",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "foreignId",
+            "name": "lecturer_id",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "foreignId",
+            "name": "student_id",
+            "attributes": "",
+            "comment": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "2023_07_23_124244_create_sessions_table.php",
+    "schemaData": [
+      {
+        "tableName": "sessions",
+        "comment": "",
+        "foreignKeys": [],
+        "columns": [
+          {
+            "type": "string",
+            "name": "id",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "foreignId",
+            "name": "user_id",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "text",
+            "name": "user_agent",
+            "attributes": "",
+            "comment": ""
+          },
+          {
+            "type": "integer",
+            "name": "last_activity",
+            "attributes": "",
+            "comment": ""
+          }
+        ]
+      }
+    ]
+  }
+]

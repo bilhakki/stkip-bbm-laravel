@@ -1,0 +1,174 @@
+Table: users
+   Comment: Tabel ini digunakan untuk menyimpan data pengguna atau user dalam sistem.
+   Columns:
+       - name, type: string, comment: menyimpan nama pengguna
+       - email, type: string, comment: menyimpan alamat email pengguna yang unik
+       - username, type: string, comment: menyimpan nomor pengenal. Nomor Induk Mahasiswa untuk pelajar dan Nomor Identitas Pegawai untuk dosen dan pegawai akademik
+       - email_verified_at, type: timestamp, comment: menunjukkan peran (admin, student, lecturer, academic_university, academic_faculty atau academic_major) dari pengguna
+       - password, type: string, comment: menunjukkan peran (admin, student, lecturer, academic_university, academic_faculty atau academic_major) dari pengguna
+       - role, type: enum, attributes: UserRole::values()
+       - current_team_id, type: foreignId
+
+Table: faculties
+   Comment: Tabel ini berisi informasi tentang fakultas-fakultas di universitas.
+   Columns:
+       - name, type: string, comment: nama fakultas
+
+Table: rooms
+   Comment: Tabel ini berisi informasi tentang ruangan-ruangan yang digunakan untuk perkuliahan.
+   Columns:
+       - name, type: string, comment: nama ruang bisa, diawali dengan nama gedung - lantai - nomor ruangan
+       - description, type: text, comment: berisi info lebih rinci mengenai lokasi ruangan dan rincian lainya
+       - capacity, type: integer, comment: kapasitas maksimal mahasiswa dalam sebuah ruangan
+
+Table: majors
+   Comment: Tabel ini berisi informasi tentang jurusan-jurusan di universitas.
+   Columns:
+       - name, type: string, comment: nama jurusan
+       - faculty_id, type: foreignId, comment: menghubungkan jurusan dengan fakultas dimana 1 fakultas bisa terdapat 1 atau banyak jurusan
+
+Table: seasons
+   Columns:
+       - name, type: string, comment: misal: `2023/2024`, `2024/2025`, dst.
+       - start_date, type: date
+       - end_date, type: date
+
+Table: academics
+   Comment: Tabel ini menyimpan data pegawai akademik. Pegawai akademik dapat terdiri dari academic_university, academic_faculty atau academic_major.
+   Columns:
+       - academicable_id, type: unsignedBigInteger, comment: merupakan foreign key yang mengacu pada tabel `users`, untuk menghubungkan data pegawai akademik dengan data user
+       - academicable_type, type: string, comment: merupakan foreign key yang mengacu pada tabel `users`, untuk menghubungkan data pegawai akademik dengan data user
+       - user_id, type: foreignId, comment: merupakan foreign key yang mengacu pada tabel `users`, untuk menghubungkan data pegawai akademik dengan data user
+
+Table: students
+   Comment: Tabel ini menyimpan data mahasiswa
+   Columns:
+       - student_id, type: string, comment: menyimpan nomor identifikasi mahasiswa seperti nomor induk mahasiswa
+       - current_credits, type: integer, comment: Untuk menghitung jumlah kredit atau sks yang telah diambil oleh setiap mahasiswa pada semester saat ini. Informasi ini diperlukan untuk memastikan bahwa setiap mahasiswa tidak mengambil lebih dari batas maksimum kredit yang diizinkan.
+       - admission_year, type: integer, comment: menyimpan tahun masuk mahasiswa
+       - date_of_birth, type: date, comment: tanggal lahir mahasiswa
+       - gender, type: enum, attributes: Gender::values()
+       - status, type: enum, attributes: StudentStatus::values()
+       - address, type: text, comment: alamat mahasiswa
+       - phone_number, type: string, comment: nomor telepon mahasiswa
+       - guardian_name, type: string, comment: nama wali mahasiswa
+       - guardian_phone_number, type: string, comment: nomor telepon wali mahasiswa
+       - blood_type, type: string, comment: golongan darah mahasiswa
+       - tuition_fee, type: unsignedBigInteger, comment: menyimpan besaran SPP untuk mahasiswa
+       - user_id, type: foreignId, comment: merupakan foreign key yang mengacu pada tabel `users`, untuk menghubungkan data mahasiswa dengan data user
+       - faculty_id, type: foreignId, comment: menyimpan foreign key untuk menghubungkan data mahasiswa dengan fakultas
+       - major_id, type: foreignId, comment: menyimpan foreign key untuk menghubungkan data mahasiswa dengan jurusan
+
+Table: courses
+   Comment: Tabel ini berisi informasi tentang mata kuliah yang tersedia di sistem.
+   Columns:
+       - code, type: string, comment: menyimpan kode unik untuk mata kuliah
+       - name, type: string, comment: menyimpan nama lengkap mata kuliah
+       - credits, type: integer, comment: menyimpan nilai default jumlah kredit atau sks (sistem kredit semester) dari mata kuliah
+       - major_id, type: foreignId, comment: menyimpan foreign key untuk menghubungkan data mahasiswa dengan jurusan
+       - faculty_id, type: foreignId, comment: menyimpan foreign key untuk menghubungkan data mahasiswa dengan fakultas
+
+Table: lecturers
+   Comment: Tabel ini berisi informasi tentang dosen-dosen di universitas.
+   Columns:
+       - position, type: string, comment: menjelaskan dirinya dikampus, seperti asisten dosen, dosen atau dosen senior
+       - specialization, type: string, comment: spesialisasi dari dosen ini
+       - phone_number, type: string, comment: nomor telepon dosen
+       - status, type: enum, attributes: LecturerStatus::values()
+       - user_id, type: foreignId
+
+Table: course_prerequisites
+   Comment: Tabel ini mencatat persyaratan prasyarat untuk setiap mata kuliah.
+   Columns:
+       - course_id, type: foreignId
+       - prerequisite_course_id, type: foreignId
+
+Table: tuition_payments
+   Comment: table ini akan mencatat mahasiswa yang telah membayar spp
+   Columns:
+       - payment_at, type: dateTime, comment: menyimpan tanggal pembayaran SPP.
+       - amount, type: unsignedBigInteger, comment: menyimpan jumlah pembayaran SPP.
+       - receipt_number, type: string, comment: menyimpan nomor kwitansi pembayaran.
+       - status, type: enum, attributes: TuitionPaymentStatus::values()
+       - student_id, type: foreignId
+       - season_id, type: foreignId
+
+Table: student_season_logs
+   Comment: mencatat status mahasiswa per semester apakah aktif, cuti, lulus atau drop out
+   Columns:
+       - status, type: enum, attributes: StudentStatus::values()
+       - description, type: text, comment: deskripsi atau catatan tambahan mengenai log kegiatan mahasiswa pada season tersebut
+       - student_id, type: foreignId
+       - season_id, type: foreignId
+
+Table: classrooms
+   Comment: menyimpan data tentang setiap kelas matakuliah yang ada di universitas. Setiap kelas akan memiliki informasi seperti nama kelas, tahun ajaran, semester, jumlah mahasiswa, dan lain sebagainya. tabel ini adalah panduan mahasiswa untuk memilik mata kuliah atau kelas yang akan diambil.
+   Columns:
+       - name, type: string, comment: Kapasitas maksimum mahasiswa dalam kelas.
+       - capacity, type: integer, comment: Kapasitas maksimum mahasiswa dalam kelas.
+       - credits, type: integer, comment: menyimpan nilai jumlah kredit atau sks (sistem kredit semester) dari mata kuliah
+       - season_id, type: foreignId
+       - course_id, type: foreignId
+
+Table: classroom_enrollments
+   Comment: Tabel ini akan menghubungkan data mahasiswa dengan kelas yang mereka ambil pada setiap semester.
+   Columns:
+       - remarks, type: text, comment: Kolom ini digunakan untuk menyimpan catatan atau keterangan tambahan terkait status pendaftaran mahasiswa ke dalam kelas. Misalnya, alasan penolakan pendaftaran jika statusnya `rejected`, atau pesan persetujuan jika statusnya `approved`.
+       - status, type: enum, attributes: ClassroomEnrollmentStatus::values()
+       - season_id, type: foreignId
+       - classroom_id, type: foreignId
+       - student_id, type: foreignId
+
+Table: classroom_sessions
+   Comment: mencatat detail mulai dari perencanaan kelas dari akademik di setiap sesi atau pertemuan dalam kelas. berisi tanggal, jam, ruangan dan deskripsi sesi kelas
+   Columns:
+       - start_datetime, type: dateTime, comment: menyimpan tanggal dan jam dimulainya sesi kelas
+       - end_datetime, type: dateTime, comment: menyimpan tanggal dan jam berakhirnya sesi kelas
+       - attendance_code, type: string, comment: menyimpan kode unik atau token yang digunakan mahasiswa untuk mencatat kehadiran secara otomatis atau online. Kode ini dapat dihasilkan secara acak untuk setiap sesi kelas.
+       - topic, type: text, comment: menyimpan topik atau materi yang akan dibahas dalam sesi tersebut.
+       - classroom_id, type: foreignId
+       - season_id, type: foreignId
+       - lecturer_id, type: foreignId
+       - room_id, type: foreignId
+
+Table: student_grades
+   Comment: menyimpan nilai akademik mahasiswa pada setiap mata kuliah
+   Columns:
+       - grade, type: float, comment: menyimpan informasi tentang nilai yang diberikan pada mata kuliah tersebut.
+       - student_id, type: foreignId, comment: foreign key yang mengacu pada tabel `students`, untuk menghubungkan nilai dengan mahasiswa tertentu
+       - course_id, type: foreignId, comment: untuk menghubungkan nilai dengan mata kuliah tertentu
+       - classroom_id, type: foreignId, comment: untuk mengetahui siapa yang menginput nilai, bisa jadi admin, akademik atau dosen
+       - season_id, type: foreignId, comment: untuk menghubungkan nilai dengan semester tertentu
+       - user_id, type: foreignId, comment: untuk mengetahui siapa yang menginput nilai, bisa jadi admin, akademik atau dosen
+
+Table: student_attendances
+   Comment: mencatat absensi mahasiswa pada setiap sesi kelas
+   Columns:
+       - status, type: enum, attributes: StudentAttendanceStatus::values()
+       - student_id, type: foreignId, comment: untuk menghubungkan mahasiswa yang melakukan absen
+       - classroom_session_id, type: foreignId, comment: untuk menghubungkan sesi kelas tertentu dengan absen
+
+Table: classroom_lecturer
+   Comment: table many to many yang menghubungkan table classroom dengan lecturer
+   Columns:
+       - classroom_id, type: foreignId
+       - lecturer_id, type: foreignId
+
+Table: classroom_student
+   Comment: table many to many yang menghubungkan table classroom dengan student
+   Columns:
+       - classroom_id, type: foreignId
+       - student_id, type: foreignId
+
+Table: academic_advisors
+   Comment: Mencatat hubungan antara dosen pembimbing akademik (academic advisor) dengan mahasiswa. Dosen pembimbing akademik adalah seorang dosen yang bertanggung jawab untuk memberikan bimbingan dan nasihat akademik kepada mahasiswa yang ditugaskan kepadanya. Setiap mahasiswa biasanya memiliki satu dosen pembimbing akademik yang membantu mereka dalam merencanakan kurikulum studi, memberikan saran mengenai mata kuliah yang harus diambil, membantu mengatasi masalah akademik, dan memberikan panduan umum untuk mencapai tujuan akademik.
+   Columns:
+       - lecturer_id, type: foreignId
+       - student_id, type: foreignId
+
+Table: sessions
+   Columns:
+       - id, type: string
+       - user_id, type: foreignId
+       - user_agent, type: text
+       - last_activity, type: integer

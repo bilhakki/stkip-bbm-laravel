@@ -1,0 +1,32 @@
+- Dashboard
+- Mahasiswa
+    - Daftar Mahasiswa
+    - Tambah Mahasiswa
+    - Riwayat Mahasiswa
+    - Absensi Mahasiswa
+    - Nilai Mahasiswa
+- Dosen
+    - Daftar Dosen
+    - Tambah Dosen
+- Mata Kuliah
+    - Daftar Mata Kuliah
+    - Tambah Mata Kuliah
+- Kelas
+    - Daftar Kelas
+    - Tambah Kelas
+- Fakultas
+    - Daftar Fakultas
+    - Tambah Fakultas
+- Jurusan
+    - Daftar Jurusan
+    - Tambah Jurusan
+- Pembayaran SPP
+    - Daftar Pembayaran
+    - Tambah Pembayaran
+- Perencanaan Akademik
+    - Jadwal Kuliah
+    - Penugasan Dosen
+    - Pengaturan Ruang Kelas
+- Pengaturan
+    - Pengaturan Akun Admin
+    - Pengaturan Sistem
