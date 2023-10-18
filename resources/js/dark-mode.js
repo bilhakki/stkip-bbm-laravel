@@ -3,7 +3,11 @@ import { setCookie, getCookie } from "./helpers/cookie";
 const themeToggleBtn = document.querySelector(".theme-toggle");
 // Change the icons inside the button based on previous settings
 var colorTheme = getCookie("color-theme");
-if (colorTheme === "dark" || (!colorTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+if (
+    colorTheme === "dark" ||
+    (!colorTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+) {
+    setCookie("color-theme", "dark", 365);
     document.body.classList.add("dark");
     document.documentElement.classList.add("dark");
 }
